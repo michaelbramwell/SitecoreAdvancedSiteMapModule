@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
 using Sitecore.AdvancedSiteMap.Component;
@@ -12,17 +11,14 @@ using Sitecore.AdvancedSiteMap.Constants;
 using Sitecore.Configuration;
 using Sitecore.Data;
 using Sitecore.Data.Items;
-using Sitecore.Data.Managers;
 using Sitecore.Diagnostics;
 using Sitecore.Globalization;
 using Sitecore.Links;
-using Sitecore.Sites;
 
 namespace Sitecore.AdvancedSiteMap
 {
     public class SiteMapBuilder
     {
-
         private Database GetTargetDatabase()
         {
             SiteMapConfig siteMapConfig = new SiteMapConfig();
@@ -80,9 +76,9 @@ namespace Sitecore.AdvancedSiteMap
                         var options = global::Sitecore.Links.LinkManager.GetDefaultUrlOptions();
                         options.AlwaysIncludeServerUrl = true;
                         options.LanguageEmbedding = LanguageEmbedding.Always;
-                        options.Site = SiteContext.GetSite(site.Name);
                         options.SiteResolving = true;
-
+                        
+                        
                         // get langauges 
                         List<Language> _availbleLangauges = null;
                         if (siteMapConfig.multilingualSiteMapXML)
@@ -103,9 +99,10 @@ namespace Sitecore.AdvancedSiteMap
 
                             foreach (var item in siteMapItems)
                             {
+                                //to resolve issues with multisite link resolution here, set the rootPath="#" on the publisher site in web.config
+                                //and also add scheme="http" to the Site Definition for your site
                                 string url = LinkManager.GetItemUrl(item, options);
-                                string hostName = _site.HostName;
-                                url = hostName + "//" + url;
+                                
                                 if (!url.Contains("http://"))
                                 {
                                     if (site.Fields[SiteItemFields.ServerURL] != null &&

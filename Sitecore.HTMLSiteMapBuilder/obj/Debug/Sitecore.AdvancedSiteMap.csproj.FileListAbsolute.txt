@@ -20,3 +20,9 @@ C:\inetpub\wwwroot\Sitecore8Fallback\Sitecore.HTMLSiteMapBuilder\bin\Debug\Newto
 C:\inetpub\wwwroot\Sitecore8Fallback\Sitecore.HTMLSiteMapBuilder\bin\Debug\Telerik.Web.UI.xml
 C:\inetpub\wwwroot\Sitecore8Fallback\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.AdvancedSiteMap.dll
 C:\inetpub\wwwroot\Sitecore8Fallback\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.AdvancedSiteMap.pdb
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\bin\Debug\Sitecore.AdvancedSiteMap.dll
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\bin\Debug\Sitecore.AdvancedSiteMap.pdb
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.AdvancedSiteMap.csprojResolveAssemblyReference.cache
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.AdvancedSiteMap.dll
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.AdvancedSiteMap.pdb
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\bin\Debug\Sitecore.Kernel.dll
