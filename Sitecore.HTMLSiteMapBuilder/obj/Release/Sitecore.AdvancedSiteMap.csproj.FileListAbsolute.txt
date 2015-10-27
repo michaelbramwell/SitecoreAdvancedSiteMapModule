@@ -1,0 +1,6 @@
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\bin\Release\Sitecore.AdvancedSiteMap.dll
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\bin\Release\Sitecore.AdvancedSiteMap.pdb
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\bin\Release\Sitecore.Kernel.dll
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\obj\Release\Sitecore.AdvancedSiteMap.dll
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\obj\Release\Sitecore.AdvancedSiteMap.pdb
+D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\obj\Release\Sitecore.AdvancedSiteMap.csprojResolveAssemblyReference.cache

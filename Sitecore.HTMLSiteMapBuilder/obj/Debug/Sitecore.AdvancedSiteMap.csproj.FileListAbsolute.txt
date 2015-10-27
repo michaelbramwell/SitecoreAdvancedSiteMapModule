@@ -22,7 +22,6 @@ C:\inetpub\wwwroot\Sitecore8Fallback\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitec
 C:\inetpub\wwwroot\Sitecore8Fallback\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.AdvancedSiteMap.pdb
 D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\bin\Debug\Sitecore.AdvancedSiteMap.dll
 D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\bin\Debug\Sitecore.AdvancedSiteMap.pdb
-D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.AdvancedSiteMap.csprojResolveAssemblyReference.cache
 D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.AdvancedSiteMap.dll
 D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.AdvancedSiteMap.pdb
 D:\DEV\AdvancedSitemap\Sitecore.HTMLSiteMapBuilder\bin\Debug\Sitecore.Kernel.dll
