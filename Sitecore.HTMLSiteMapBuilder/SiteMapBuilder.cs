@@ -64,6 +64,9 @@ namespace Sitecore.AdvancedSiteMap
                     if (_root == null)
                         continue;
 
+
+                    bool useServerUrlOverride = site.Fields[SiteItemFields.ServerURL] != null && !string.IsNullOrEmpty(site.Fields[SiteItemFields.ServerURL].Value);
+                    
                     StringBuilder sbSiteMap = new StringBuilder();
                     sbSiteMap.Append("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd'>");
 
@@ -72,9 +75,9 @@ namespace Sitecore.AdvancedSiteMap
                     {
                         if (_root.Fields["Show In XML SiteMap"].Value == "1")
                             siteMapItems.Add(_root);
-
+                        
                         var options = global::Sitecore.Links.LinkManager.GetDefaultUrlOptions();
-                        options.AlwaysIncludeServerUrl = true;
+                        options.AlwaysIncludeServerUrl = !useServerUrlOverride;
                         options.LanguageEmbedding = LanguageEmbedding.Always;
                         options.SiteResolving = true;
                         
@@ -105,8 +108,7 @@ namespace Sitecore.AdvancedSiteMap
                                 
                                 if (!url.Contains("http://"))
                                 {
-                                    if (site.Fields[SiteItemFields.ServerURL] != null &&
-                                        !string.IsNullOrEmpty(site.Fields[SiteItemFields.ServerURL].Value))
+                                    if (useServerUrlOverride)
                                     {
                                         url = site.Fields[SiteItemFields.ServerURL].Value + "//" + url;
                                     }
