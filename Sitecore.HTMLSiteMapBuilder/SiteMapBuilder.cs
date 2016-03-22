@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Web;
 using System.Xml;
@@ -64,6 +65,16 @@ namespace Sitecore.AdvancedSiteMap
                     if (_root == null)
                         continue;
 
+                    string siteHostName;
+                    if (string.IsNullOrEmpty(_site.TargetHostName))
+                    {
+                        var hostArray = _site.HostName.Split('|');
+                        siteHostName = hostArray.FirstOrDefault();
+                    }
+                    else
+                    {
+                        siteHostName = _site.TargetHostName;
+                    }
 
                     bool useServerUrlOverride = site.Fields[SiteItemFields.ServerURL] != null && !string.IsNullOrEmpty(site.Fields[SiteItemFields.ServerURL].Value);
                     
@@ -77,7 +88,7 @@ namespace Sitecore.AdvancedSiteMap
                             siteMapItems.Add(_root);
                         
                         var options = global::Sitecore.Links.LinkManager.GetDefaultUrlOptions();
-                        options.AlwaysIncludeServerUrl = !useServerUrlOverride;
+                        options.AlwaysIncludeServerUrl = true;
                         options.LanguageEmbedding = LanguageEmbedding.Always;
                         options.SiteResolving = true;
                         
@@ -106,22 +117,27 @@ namespace Sitecore.AdvancedSiteMap
                                 //and also add scheme="http" to the Site Definition for your site
                                 string url = LinkManager.GetItemUrl(item, options);
                                 
-                                if (!url.Contains("http://"))
+                                if (useServerUrlOverride)
                                 {
-                                    if (useServerUrlOverride)
+                                    if (url.Contains("://" + siteHostName + "/"))
                                     {
-                                        //bug fix on CD Servers; CD cannot have scheme=http in Site Definition
-                                        if (url.StartsWith("://" + _site.TargetHostName + "/"))
-                                        {
-                                            url = url.Replace("://" + _site.TargetHostName + "/", "");
-                                        }
-
-                                        url = site.Fields[SiteItemFields.ServerURL].Value + "//" + url;
+                                        url = url.Replace(siteHostName, site.Fields[SiteItemFields.ServerURL].Value.Replace("http://", "").Replace("https://", ""));
                                     }
                                     else
                                     {
-                                        url = "http://" + url;
+                                        url = site.Fields[SiteItemFields.ServerURL].Value + "//" + url;
                                     }
+                                }
+
+                                //handle where scheme="http" has not been added to Site Definitions
+                                if (url.StartsWith("://"))
+                                {
+                                    url = url.Replace("://", "");                                    
+                                }
+
+                                if (!url.StartsWith("http://"))
+                                {
+                                    url = "http://" + url;
                                 }
 
                                 string lastUpdated = DateUtil.IsoDateToDateTime(item.Fields[Sitecore.FieldIDs.Updated].Value).ToString("yyyy-MM-ddTHH:mm:sszzz");
