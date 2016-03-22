@@ -110,7 +110,7 @@ namespace Sitecore.AdvancedSiteMap
                                 {
                                     if (useServerUrlOverride)
                                     {
-                                        //bug fix on CD Servers without scheme=http
+                                        //bug fix on CD Servers; CD cannot have scheme=http in Site Definition
                                         if (url.StartsWith("://" + _site.TargetHostName + "/"))
                                         {
                                             url = url.Replace("://" + _site.TargetHostName + "/", "");
