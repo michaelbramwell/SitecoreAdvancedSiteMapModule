@@ -65,7 +65,7 @@ namespace Sitecore.AdvancedSiteMap.Component
         {
             try
             {
-                Database tempdb = Sitecore.Configuration.Factory.GetDatabase("master");
+                Database tempdb = Sitecore.Configuration.Factory.GetDatabase("web"); //don't use Master as this does not exist in CD Server environments
                 Item configItem = tempdb.GetItem(Constants.Guids.Items.AdvancedSiteMapConfigItemId);
                 if (configItem == null)
                     throw new Exception("Advanced SiteMap config item was not found.");
