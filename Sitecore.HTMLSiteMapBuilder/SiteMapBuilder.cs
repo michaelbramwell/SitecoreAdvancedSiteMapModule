@@ -81,7 +81,7 @@ namespace Sitecore.AdvancedSiteMap
                     StringBuilder sbSiteMap = new StringBuilder();
                     sbSiteMap.Append("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd'>");
 
-                    List<Item> siteMapItems = _root.Axes.GetDescendants().Where(P => P.Fields["Show In XML SiteMap"].Value == "1").ToList();
+                    List<Item> siteMapItems = _root.Axes.GetDescendants().Where(P => P.Fields["Show In XML SiteMap"] != null && P.Fields["Show In XML SiteMap"].Value == "1").ToList();
                     if (siteMapItems != null && siteMapItems.Any())
                     {
                         if (_root.Fields["Show In XML SiteMap"].Value == "1")
