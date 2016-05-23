@@ -113,20 +113,16 @@ namespace Sitecore.AdvancedSiteMap
 
                             foreach (var item in siteMapItems)
                             {
+                                options.AlwaysIncludeServerUrl = !useServerUrlOverride;
+
                                 //to resolve issues with multisite link resolution here, set the rootPath="#" on the publisher site in web.config
                                 //and also add scheme="http" to the Site Definition for your site
                                 string url = LinkManager.GetItemUrl(item, options);
-                                
+
+                                // Add URL override to url
                                 if (useServerUrlOverride)
                                 {
-                                    if (url.Contains("://" + siteHostName + "/"))
-                                    {
-                                        url = url.Replace(siteHostName, site.Fields[SiteItemFields.ServerURL].Value.Replace("http://", "").Replace("https://", ""));
-                                    }
-                                    else
-                                    {
-                                        url = site.Fields[SiteItemFields.ServerURL].Value + "//" + url;
-                                    }
+                                    url = string.Format("{0}{1}", site.Fields[SiteItemFields.ServerURL].Value, url);
                                 }
 
                                 //handle where scheme="http" has not been added to Site Definitions
