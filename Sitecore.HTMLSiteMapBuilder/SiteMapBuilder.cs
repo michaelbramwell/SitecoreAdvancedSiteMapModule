@@ -77,7 +77,8 @@ namespace Sitecore.AdvancedSiteMap
                     }
 
                     bool useServerUrlOverride = site.Fields[SiteItemFields.ServerURL] != null && !string.IsNullOrEmpty(site.Fields[SiteItemFields.ServerURL].Value);
-                    
+                    string serverUrlOverrideUrl = site.Fields[SiteItemFields.ServerURL].Value;
+
                     StringBuilder sbSiteMap = new StringBuilder();
                     sbSiteMap.Append("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd'>");
 
@@ -122,7 +123,7 @@ namespace Sitecore.AdvancedSiteMap
                                 // Add URL override to url
                                 if (useServerUrlOverride)
                                 {
-                                    url = string.Format("{0}{1}", site.Fields[SiteItemFields.ServerURL].Value, url);
+                                    url = string.Format("{0}{1}", serverUrlOverrideUrl, url);
                                 }
 
                                 //handle where scheme="http" has not been added to Site Definitions
@@ -189,11 +190,24 @@ namespace Sitecore.AdvancedSiteMap
 
                         if (site.Fields[SiteItemFields.AddToRobotFile] != null)
                         {
+                            // Base URL
+                            var serverUrl = serverUrlOverrideUrl;
+
+                            if (!useServerUrlOverride)
+                            {
+                                // handles multi site, single site with hostname defined and single site with no hostname defined
+                                var item = siteMapItems.FirstOrDefault();
+                                Uri mySite = new Uri(LinkManager.GetItemUrl(item, new UrlOptions {LanguageEmbedding = LanguageEmbedding.Never, AlwaysIncludeServerUrl = true }));
+                                serverUrl = mySite.Scheme + Uri.SchemeDelimiter + mySite.Host;
+                            }
+
+                            serverUrl = serverUrl.EndsWith("/") ? serverUrl : serverUrl + "/"; // Ensure URL is built correctly
+
                             Sitecore.Data.Fields.CheckboxField _AddToRobotFile = site.Fields[SiteItemFields.AddToRobotFile];
                             if (_AddToRobotFile != null)
                             {
                                 if (_AddToRobotFile.Checked)
-                                    AddSitemapToRobots(fileName);
+                                    AddSitemapToRobots(string.Format("{0}{1}", serverUrl, fileName));
                             }
                         }
 
