@@ -7,3 +7,4 @@ C:\Users\Ryan\Source\Repos\SitecoreAdvancedSiteMapModule\Sitecore.HTMLSiteMapBui
 C:\Users\Ryan\Source\Repos\SitecoreAdvancedSiteMapModule\Sitecore.HTMLSiteMapBuilder\bin\Release\Sitecore.AdvancedSiteMap.pdb
 C:\Users\Ryan\Source\Repos\SitecoreAdvancedSiteMapModule\Sitecore.HTMLSiteMapBuilder\obj\Release\Sitecore.AdvancedSiteMap.dll
 C:\Users\Ryan\Source\Repos\SitecoreAdvancedSiteMapModule\Sitecore.HTMLSiteMapBuilder\obj\Release\Sitecore.AdvancedSiteMap.pdb
+C:\Users\Ryan\Source\Repos\SitecoreAdvancedSiteMapModule\Sitecore.HTMLSiteMapBuilder\obj\Release\Sitecore.AdvancedSiteMap.csprojResolveAssemblyReference.cache

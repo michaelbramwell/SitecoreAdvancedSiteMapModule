@@ -89,7 +89,6 @@ namespace Sitecore.AdvancedSiteMap
                             siteMapItems.Add(_root);
                         
                         var options = global::Sitecore.Links.LinkManager.GetDefaultUrlOptions();
-                        options.AlwaysIncludeServerUrl = true;
                         options.LanguageEmbedding = LanguageEmbedding.Always;
                         options.SiteResolving = true;
                         
@@ -111,6 +110,7 @@ namespace Sitecore.AdvancedSiteMap
                         {
                             options.Language = langauge;
                             options.EmbedLanguage(langauge);
+                            options.Site = _site;
 
                             foreach (var item in siteMapItems)
                             {
