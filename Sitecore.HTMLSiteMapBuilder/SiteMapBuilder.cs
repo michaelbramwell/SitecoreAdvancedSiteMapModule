@@ -132,7 +132,7 @@ namespace Sitecore.AdvancedSiteMap
                                     url = url.Replace("://", "");                                    
                                 }
 
-                                if (!url.StartsWith("http://"))
+                                if (!url.StartsWith("http://") || !url.StartsWith("https://"))
                                 {
                                     url = "http://" + url;
                                 }
