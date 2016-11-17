@@ -1,7 +1,7 @@
 # SitecoreAdvancedSiteMapModule
 Sitecore Advanced SiteMap Module Source Code 
 
-## Current Form Notes
+## Current Fork Notes
 Fixed HTML sitemap issues; to the extent that it actually works now and outputs a tree of nodes starting from the root of the current site. 
 Still could do with a couple of less hardcoded values. Everything else is pretty much as the previous fork.
 
