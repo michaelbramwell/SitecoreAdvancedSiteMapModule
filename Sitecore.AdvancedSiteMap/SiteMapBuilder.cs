@@ -20,7 +20,7 @@ namespace Sitecore.AdvancedSiteMap
 {
     public class SiteMapBuilder
     {
-        private Database GetTargetDatabase()
+        internal static Database GetTargetDatabase()
         {
             SiteMapConfig siteMapConfig = new SiteMapConfig();
             return Factory.GetDatabase(siteMapConfig.targetDatabaseName);
