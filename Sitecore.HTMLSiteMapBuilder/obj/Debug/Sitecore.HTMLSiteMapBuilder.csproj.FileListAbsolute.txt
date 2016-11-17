@@ -1,5 +1,0 @@
-C:\inetpub\wwwroot\Sitecore8HTMLSiteMap\Sitecore.HTMLSiteMapBuilder\bin\Debug\Sitecore.HTMLSiteMapBuilder.dll
-C:\inetpub\wwwroot\Sitecore8HTMLSiteMap\Sitecore.HTMLSiteMapBuilder\bin\Debug\Sitecore.HTMLSiteMapBuilder.pdb
-C:\inetpub\wwwroot\Sitecore8HTMLSiteMap\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.HTMLSiteMapBuilder.csprojResolveAssemblyReference.cache
-C:\inetpub\wwwroot\Sitecore8HTMLSiteMap\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.HTMLSiteMapBuilder.dll
-C:\inetpub\wwwroot\Sitecore8HTMLSiteMap\Sitecore.HTMLSiteMapBuilder\obj\Debug\Sitecore.HTMLSiteMapBuilder.pdb
